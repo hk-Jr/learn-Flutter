@@ -15,12 +15,20 @@ class ExerciseDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121212),
+      backgroundColor: const Color(0xFF09090B),
       appBar: AppBar(
-        title: Text(exerciseName),
-        backgroundColor: const Color(0xFF121212),
+        title: Text(
+          exerciseName.toUpperCase(),
+          style: const TextStyle(
+            fontWeight: FontWeight.w900,
+            letterSpacing: 2.0,
+            shadows: [Shadow(color: Color(0xFF00F0FF), blurRadius: 10)],
+          ),
+        ),
+        backgroundColor: const Color(0xFF09090B),
         elevation: 0,
-        foregroundColor: Colors.white,
+        foregroundColor: const Color(0xFF00F0FF),
+        iconTheme: const IconThemeData(color: Color(0xFFFF007F)),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
@@ -32,12 +40,19 @@ class ExerciseDetailScreen extends StatelessWidget {
               width: double.infinity,
               height: 250,
               decoration: BoxDecoration(
-                color: const Color(0xFF1E1E1E),
+                color: const Color(0xFF16161A),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: Colors.white10),
+                border: Border.all(color: const Color(0xFF00F0FF).withValues(alpha: 0.3), width: 2),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF00F0FF).withValues(alpha: 0.15),
+                    blurRadius: 20,
+                    spreadRadius: 2,
+                  ),
+                ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(14),
                 child: Image.network(
                   animationUrl,
                   headers: const {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'},
@@ -62,7 +77,7 @@ class ExerciseDetailScreen extends StatelessWidget {
                         value: loadingProgress.expectedTotalBytes != null
                             ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
                             : null,
-                        color: const Color(0xFF2196F3),
+                        color: const Color(0xFFFF007F),
                       ),
                     );
                   },
@@ -73,11 +88,12 @@ class ExerciseDetailScreen extends StatelessWidget {
             
             // Instructions Title
             const Text(
-              'How to perform',
+              'HOW TO PERFORM',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 22,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 1.5,
               ),
             ),
             const SizedBox(height: 16),

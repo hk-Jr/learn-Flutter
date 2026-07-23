@@ -21,24 +21,38 @@ class ExerciseScreen extends StatelessWidget {
                   Text(
                     'Welcome back,',
                     style: TextStyle(
-                      color: Colors.grey.shade500,
+                      color: Colors.grey.shade400,
                       fontSize: 16,
                     ),
                   ),
                   const Text(
-                    'Active User',
+                    'ACTIVE USER',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 28,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 1.5,
+                      shadows: [Shadow(color: Color(0xFF00F0FF), blurRadius: 8)],
                     ),
                   ),
                 ],
               ),
-              const CircleAvatar(
-                radius: 25,
-                backgroundColor: Color(0xFF2196F3),
-                child: Icon(Icons.flash_on_rounded, color: Colors.white),
+              Container(
+                padding: const EdgeInsets.all(2),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    colors: [Color(0xFFFF007F), Color(0xFF00F0FF)],
+                  ),
+                  boxShadow: [
+                    BoxShadow(color: Color(0xFF00F0FF), blurRadius: 10, spreadRadius: 1),
+                  ],
+                ),
+                child: const CircleAvatar(
+                  radius: 24,
+                  backgroundColor: Color(0xFF16161A),
+                  child: Icon(Icons.flash_on_rounded, color: Color(0xFF00F0FF)),
+                ),
               ),
             ],
           ),
@@ -48,11 +62,19 @@ class ExerciseScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: [Color(0xFF1E3C72), Color(0xFF2A5298)],
+                colors: [Color(0xFFFF007F), Color(0xFF00F0FF)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
-              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFFFF007F).withValues(alpha: 0.3),
+                  blurRadius: 15,
+                  spreadRadius: 2,
+                  offset: const Offset(0, 5),
+                ),
+              ],
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,11 +129,12 @@ class ExerciseScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           const Text(
-            'Recommended Exercises',
+            'RECOMMENDED EXERCISES',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 1.2,
             ),
           ),
           const SizedBox(height: 15),
@@ -267,23 +290,31 @@ class ExerciseScreen extends StatelessWidget {
           ),
         );
       },
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(16),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color(0xFF1E1E1E),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.white10),
+          color: const Color(0xFF16161A),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: const Color(0xFF00F0FF).withValues(alpha: 0.2)),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFF00F0FF).withValues(alpha: 0.05),
+              blurRadius: 10,
+              spreadRadius: 1,
+            ),
+          ],
         ),
         child: Row(
           children: [
             Container(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color(0xFF2196F3).withValues(alpha: 0.15),
-                borderRadius: BorderRadius.circular(10),
+                color: const Color(0xFF00F0FF).withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: const Color(0xFF00F0FF).withValues(alpha: 0.3)),
               ),
-              child: Icon(icon, color: const Color(0xFF2196F3), size: 28),
+              child: Icon(icon, color: const Color(0xFF00F0FF), size: 28),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -291,11 +322,12 @@ class ExerciseScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    title.toUpperCase(),
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 1.0,
                     ),
                   ),
                   const SizedBox(height: 6),
@@ -319,7 +351,7 @@ class ExerciseScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+            Icon(Icons.chevron_right_rounded, color: const Color(0xFFFF007F).withValues(alpha: 0.8)),
           ],
         ),
       ),
