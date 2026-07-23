@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class ExerciseDetailScreen extends StatelessWidget {
   final String exerciseName;
   final String animationUrl;
-  final List<String> instructions;
+  final String description;
 
   const ExerciseDetailScreen({
     super.key,
     required this.exerciseName,
     required this.animationUrl,
-    required this.instructions,
+    required this.description,
   });
 
   @override
@@ -82,48 +82,15 @@ class ExerciseDetailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             
-            // Instructions List
-            ...instructions.asMap().entries.map((entry) {
-              int index = entry.key;
-              String instruction = entry.value;
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 12.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 24,
-                      height: 24,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF2196F3),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Text(
-                          '${index + 1}',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        instruction,
-                        style: const TextStyle(
-                          color: Colors.white70,
-                          fontSize: 16,
-                          height: 1.5,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            }),
+            // Description Text
+            Text(
+              description,
+              style: const TextStyle(
+                color: Colors.white70,
+                fontSize: 16,
+                height: 1.5,
+              ),
+            ),
           ],
         ),
       ),
